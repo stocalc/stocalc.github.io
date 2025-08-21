@@ -1,4 +1,4 @@
-# Stochastic Calculus and Mathematical Finance
+# Stochastic Calculus and Mathematical Finance 💰
 
 Welcome to the course page for **Stochastic Calculus and Mathematical Finance**, taught by **Prof. Sandeep Juneja** at **Ashoka University**.  
 This repository hosts the official GitHub Pages site: [stocalc.github.io](https://stocalc.github.io).
