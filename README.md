@@ -44,8 +44,7 @@ By the end of the course, students will:
 ---
 
 ## 👨‍🏫 Professor Bio
-**Prof. Sandeep Juneja** is a renowned researcher in stochastic processes, mathematical finance, and applied probability.  
-He has made significant contributions to the theory and practice of stochastic modeling in finance and operations research.  
+**Prof. Sandeep Juneja** is a renowned researcher in stochastic processes, mathematical finance, and applied probability. He has made significant contributions to the theory and practice of stochastic modeling in finance, climate, and Epidemiology.
 
 ---
 
