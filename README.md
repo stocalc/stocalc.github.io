@@ -65,4 +65,4 @@ cd stocalc.github.io
 ---
 
 ## 👨🏻‍💻 Report Bugs 
-This github webpage is maintained by Aman K. Foujdar. You can email me at aman.foujdar_ug2023@ashoka.edu.in for queries or reporting any issues you're facing.
+This github webpage is maintained by **Aman K. Foujdar**. You can email me at aman.foujdar_ug2023@ashoka.edu.in for queries or reporting any issues you're facing.
