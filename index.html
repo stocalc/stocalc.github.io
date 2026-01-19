@@ -3,92 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stochastic Calculus & Mathematical Finance | Prof. Sandeep Juneja</title>
+    <title>QuantFin Hub</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>STOCHASTIC CALCULUS<br>& MATHEMATICAL<br>FINANCE</h1>
-            <p class="instructor-title">BY PROF. SANDEEP JUNEJA </p>
-            <p>Professor of Computer Science at Ashoka University, Director Safexpress Centre for Data, Learning and Decision Sciences</p>
-        </header>
+    <nav>
+        <div class="nav-content">
+            <div class="logo" onclick="showPage('home')">QuantFin Hub</div>
+            <ul class="nav-links">
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('intro')">Intro to QuantFin</a></li>
+                <li><a onclick="showPage('stochastic')">Stochastic Calculus</a></li>
+                <li><a onclick="showPage('explore')">exSPLOre</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <main>
-            <section class="about-course">
-                <div class="about-text">
-                    <h2>ABOUT</h2>
-                    <p>
-                        This is a course for advanced undergraduate and graduate students with an aptitude and interest in quantitative methods. The students will be exposed to no-arbitrage-based deep and beautiful ideas underlying mathematical finance. For this they will get an adequate exposure to stochastic calculus. Stochastic calculus is also relevant for the increasingly mainstream diffusion-based generative AI.
-                        <a href="https://forms.gle/FX9wtyXqjov8NrgT9">Register here.</a>
-                    </p>
-                </div>
-                <div class="course-highlight">
-                    <p>40 HOURS OF<br>RIGOROUS LECTURES +<br>STUDENT-LED PROJECTS</p>
-                </div>
-            </section>
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>QuantFin Hub @ SCDLDS</h1>
+                <p>
+                A comprehensive quant finance resource featuring advanced courses and materials in mathematical finance, stochastic calculus, and quantitative methods. Developed under the <b>Safexpress Center for Data, Learning, and Decision Sciences (SCDLDS)</b> at Ashoka University, led by Prof. Sandeep Juneja.
+                </p>
 
-            <section class="course-details">
-                <div class="course-content">
-                    <h2>COURSE CONTENT 📚</h2>
+
+                
+                <div class="card-grid">
+                    <div class="card" onclick="showPage('intro')">
+                        <span class="card-icon"><i class="fa-solid fa-arrow-trend-up" style="color: #ffffff;"></i></span>
+                        <h3>Introduction to Quantitative Finance</h3>
+                        <p>First course in the QuantFin sequence. Featuring curated readings, lecture notes, and assignments.</p>
+
+                    </div>
+                    
+                    <div class="card" onclick="showPage('stochastic')">
+                        <span class="card-icon">∫</span>
+                        <h3>Stochastic Calculus & Mathematical Finance</h3>
+                        <p>Advanced course with lectures on stochastic processes, Itô calculus, and no-arbitrage pricing theory.</p>
+                    </div>
+                    
+                    <div class="card" onclick="showPage('explore')">
+                        <span class="card-icon"><i class="fa-solid fa-school" style="color: #ffffff;"></i></span>
+                        <h3>exSPLOre</h3>
+                        <p>Guest Lectures from experts on explorations in Statistics, Probability, Learning and Optimization Research.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="intro" class="page">
+        <div class="content-page">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <h1>Introduction to Quantitative Finance</h1>
+                <p>
+                    This course is jointly offered by <b>Prof. Sandeep Juneja</b> and <b>Prof. Tushar Jaruhar</b>. It introduces
+                    foundational models and computational techniques used in modern financial markets, with
+                    particular emphasis on implementation and applications to Indian markets.
+                </p>
+            </div>
+
+            <!-- TWO COLUMN SECTION -->
+            <div class="two-col">
+                <div class="section">
+                    <h2>📚 Course Content</h2>
+                    <ul>
+                        <li>Basic interest rates, NPV, and internal rate of return</li>
+                        <li>Fixed-income markets and term structure of interest rates</li>
+                        <li>Portfolio theory and convex optimization review</li>
+                        <li>Markowitz model, market equilibrium, and CAPM</li>
+                        <li>Discrete- and continuous-time models for asset prices</li>
+                        <li>Brownian motion and geometric Brownian motion. Introduction to Itô calculus.</li>
+                        <li>Discrete options pricing and the Black–Scholes formula</li>
+                        <li>Monte Carlo simulation and numerical PDE methods</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>🎯 Learning Outcomes</h2>
+                    <ul>
+                        <li>Understand core models used in quantitative finance</li>
+                        <li>Apply portfolio theory and asset pricing models</li>
+                        <li>Develop intuition for stochastic processes in finance</li>
+                        <li>Implement computational methods for pricing and risk analysis</li>
+                        <li>Analyze real-world financial data, with emphasis on Indian markets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- REQUIREMENTS / READING LIST -->
+            <div class="section">
+                <h2>📖 Requirements & Reading List</h2>
+                <ul>
+                    <li>Luenberger, D. (2009). <i>Investment Science</i>. Oxford University Press.</li>
+                    <li>Shreve, S. (2005). <i>Stochastic Calculus for Finance I</i>. Springer.</li>
+                    <li>Hull, J. C. & Basu, S. (2016). <i>Options, Futures, and Other Derivatives</i>. Pearson India.</li>
+                    <li>Glasserman, P. (2004). <i>Monte Carlo Methods in Financial Engineering</i>. Springer.</li>
+                    <li>Embrechts, P., Frey, R., & McNeil, A. (2011). <i>Quantitative Risk Management</i>.</li>
+                </ul>
+            </div>
+
+            <!-- ATTENDANCE -->
+            <div class="section">
+                <h2>🕒 Attendance Policy</h2>
+                <ul>
+                    <li>3 excused absences permitted for all students</li>
+                    <li>Additional 3 excused absences permitted for sportspersons</li>
+                    <li>Beyond this, a penalty of 0.5% per unexplained missed class will apply</li>
+                </ul>
+            </div>
+
+    </div>
+    </div>
+
+
+    <!-- STOCHASTIC CALCULUS PAGE -->
+    <div id="stochastic" class="page">
+        <div class="content-page">
+            <div class="page-header">
+                <h1>Stochastic Calculus & Mathematical Finance</h1>
+                <p>This is a course for advanced undergraduate and graduate students with an aptitude and interest in quantitative methods. The students will be exposed to no-arbitrage-based deep and beautiful ideas underlying mathematical finance. For this they will get an adequate exposure to stochastic calculus. Stochastic calculus is also relevant for the increasingly mainstream diffusion-based generative AI.</p>
+            </div>
+
+            <div class="info-box">
+                <p><strong>📅 Course Period:</strong> Monsoon 2025. <b></b></p>
+                <p><strong>🕙 Schedule:</strong> Tuesday & Thursday, 10:10 – 11:40 AM</p>
+                <p><strong>📍 Mode:</strong> Hybrid (In-person + Online)</p>
+                <p><strong>⏱️ Duration:</strong> 40 hours of rigorous lectures + student-led projects</p>
+                <!-- <p style="margin-top: 1rem;"><a href="https://forms.gle/FX9wtyXqjov8NrgT9" class="cta-button">Register Now</a></p> -->
+            </div>
+
+            <div class="two-col">
+                <div class="section">
+                    <h2>📚 Course Content</h2>
                     <ul>
                         <li>Review of Measure-Theoretic Probability</li>
                         <li>Martingales & Brownian Motion</li>
                         <li>Stochastic Calculus & Stochastic Integration</li>
-                        <li>Itô’s Formula & Girsanov’s Theorem</li>
+                        <li>Itô's Formula & Girsanov's Theorem</li>
                         <li>Stochastic Differential Equations & PDE Connections</li>
                         <li>Discrete & Continuous-Time Pricing Theory</li>
                         <li>Stochastic Volatility Models & Interest Rate Models</li>
                         <li>PDEs in Finance</li>
                     </ul>
                 </div>
-                <div class="eligibility">
-                    <h2>ELIGIBILTY 👨🏻‍🎓
-                    </h2>
+
+                <div class="section">
+                    <h2>👨🏻‍🎓 Eligibility</h2>
                     <ul>
-                        <li>Advanced undergraduates & master’s-level students</li>
+                        <li>Advanced undergraduates & master's-level students</li>
                         <li>Strong background in Probability, Linear Algebra, and Analysis</li>
                         <li>Aptitude & interest in quantitative methods</li>
                     </ul>
                 </div>
-            </section>
+            </div>
 
-            <section class="lectures">
-                <h2>LECTURES 🎥</h2>
+            <div class="section">
+                <h2>🎥 Lectures</h2>
                 <ul>
-                    <li><a href="https://www.youtube.com/watch?v=v68Fx5lsqAs">Lecture 1: Introduction to Derivatives (August 26, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/live/Zme5scN6kF4?feature=shared">Lecture 2: Basic Probability & Discrete Finance (August 28, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/live/LUKuUPhQwW4?feature=shared">Lecture 3: Risk Neutral Measure & Complete Markets (September 2, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=KC-HZLO7ikM">Lecture 4: Measure Theory Overview: Sigma Algebras (September 4, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=FKkJKFXd7sY">Lecture 5: Lebesgue Integral and Convergence (September 9, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=d13G20q3eDM">Lecture 6: Borel-Cantelli Lemma and Relationship Between Convergence Types (September 11, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=jnVLLNjT-Fg">Lecture 7: Law of Large Numbers and Central Limit Theorem (September 16, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=0bimM7MihXo">Lecture 8: Independance and Conditional Expectations (September 18, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=STHBlgmWX5E">Lecture 9: Conditional MCT, DCT and the Tower Property (September 23, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=dh6hE3F02BI">Lecture 10: Properties of Martingale and Stopping Time (September 25, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=rpoEXbgvRhE">Lecture 11: Martingales, Submartingales and Brownian Motion (September 30, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=011R524Gu9o">Lecture 12: Brownian Motion Continued and Reflection Principle (October 14, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=c_SiF1jXSaQ">Lecture 13: Brownian Motion as Gaussian Process & Ito's Integral (October 16, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=O7aSRJ4vqz4">Lecture 14: Ito's Integral Continued (October 23, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=xHjlcf_mZ5c">Lecture 15: General Ito's Formula (October 28, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=tvOeIWYWZKo">Lecture 16: Ornstein-Uhlenbeck (OU) Process and the Black-Scholes Model (October 30, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=S2kgnChPlFY">Lecture 17: Black-Scholes PDE and Girsanov's Theorem (November 4, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=dmtF9g4snOk">Lecture 18: Levy's Theorem, Girsanov's Theorem and Ito's Multivariate Calculus (November 6, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=OYz6Oa1CwrM">Guest Lecture 19: Financial Modelling via compound Poisson Processes (November 11, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=yWVjQWvdZVk">Guest Lecture 20: Introduction to Jump Processes (November 13, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=sRrq8KH5fiw">Lecture 21: Martingale Representation Theorem and Black-Scholes Price Derivation (November 18, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=oFi1lRxfQeI">Lecture 22: Multi-dimensional Market Model (November 20, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=PL2nFrmFZws">Lecture 23: Introduction to Interest Rate Models (November 25, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=gsjkLN7F9o4">Lecture 24: Interest Rate Models Continued (November 27, 2025)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=kh6OgpqTtlE">Lecture 25: Derivatives Pricing (December 4, 2025)</a></li>
-                    </ul>
-            </section>
+                    <li><a href="https://www.youtube.com/watch?v=v68Fx5lsqAs" target="_blank">Lecture 1: Introduction to Derivatives (August 26, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/live/Zme5scN6kF4?feature=shared" target="_blank">Lecture 2: Basic Probability & Discrete Finance (August 28, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/live/LUKuUPhQwW4?feature=shared" target="_blank">Lecture 3: Risk Neutral Measure & Complete Markets (September 2, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=KC-HZLO7ikM" target="_blank">Lecture 4: Measure Theory Overview: Sigma Algebras (September 4, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=FKkJKFXd7sY" target="_blank">Lecture 5: Lebesgue Integral and Convergence (September 9, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=d13G20q3eDM" target="_blank">Lecture 6: Borel-Cantelli Lemma and Relationship Between Convergence Types (September 11, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=jnVLLNjT-Fg" target="_blank">Lecture 7: Law of Large Numbers and Central Limit Theorem (September 16, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=0bimM7MihXo" target="_blank">Lecture 8: Independance and Conditional Expectations (September 18, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=STHBlgmWX5E" target="_blank">Lecture 9: Conditional MCT, DCT and the Tower Property (September 23, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=dh6hE3F02BI" target="_blank">Lecture 10: Properties of Martingale and Stopping Time (September 25, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=rpoEXbgvRhE" target="_blank">Lecture 11: Martingales, Submartingales and Brownian Motion (September 30, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=011R524Gu9o" target="_blank">Lecture 12: Brownian Motion Continued and Reflection Principle (October 14, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=c_SiF1jXSaQ" target="_blank">Lecture 13: Brownian Motion as Gaussian Process & Ito's Integral (October 16, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=O7aSRJ4vqz4" target="_blank">Lecture 14: Ito's Integral Continued (October 23, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=xHjlcf_mZ5c" target="_blank">Lecture 15: General Ito's Formula (October 28, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=tvOeIWYWZKo" target="_blank">Lecture 16: Ornstein-Uhlenbeck (OU) Process and the Black-Scholes Model (October 30, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=S2kgnChPlFY" target="_blank">Lecture 17: Black-Scholes PDE and Girsanov's Theorem (November 4, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=dmtF9g4snOk" target="_blank">Lecture 18: Levy's Theorem, Girsanov's Theorem and Ito's Multivariate Calculus (November 6, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=OYz6Oa1CwrM" target="_blank">Guest Lecture 19: Financial Modelling via compound Poisson Processes (November 11, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=yWVjQWvdZVk" target="_blank">Guest Lecture 20: Introduction to Jump Processes (November 13, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=sRrq8KH5fiw" target="_blank">Lecture 21: Martingale Representation Theorem and Black-Scholes Price Derivation (November 18, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=oFi1lRxfQeI" target="_blank">Lecture 22: Multi-dimensional Market Model (November 20, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=PL2nFrmFZws" target="_blank">Lecture 23: Introduction to Interest Rate Models (November 25, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=gsjkLN7F9o4" target="_blank">Lecture 24: Interest Rate Models Continued (November 27, 2025)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=kh6OgpqTtlE" target="_blank">Lecture 25: Derivatives Pricing (December 4, 2025)</a></li>
+                </ul>
+            </div>
 
-            <section class="lecture-notes">
-                <h2>LECTURE NOTES 📝</h2>
+            <div class="section">
+                <h2>📝 Lecture Notes</h2>
                 <ul>
                     <li><a href="notes/poster.jpeg" target="_blank">Course Poster</a></li>
                     <li><a href="notes/Lecture 1.pdf" target="_blank">Lecture 1 & Lecture 2</a></li>
@@ -102,75 +214,83 @@
                     <li><a href="notes/interest_rate_model (3).pdf" target="_blank">Lecture 23 & Lecture 24</a></li>
                     <li><a href="notes/interest_rate_derivatives_partially covered.pdf" target="_blank">Lecture 25</a></li>
                 </ul>
-            </section>
-        </main>
+            </div>
 
-        <aside class="sidebar">
             <div class="instructor-card">
-                <img src="images/sandeep_juneja.jpg" alt="Professor Sandeep Juneja" class="instructor-image">
-                <h2>INSTRUCTOR</h2>
+                <img src="images/sandeep_juneja.jpg" alt="Prof. Sandeep Juneja" class="instructor-img">
+                <h3>Prof. Sandeep Juneja</h3>
                 <ul>
-                    <li>Former Professor at TIFR and  IIT Delhi</li>
-                    <li>Former Head of Quantitative Ops (Bank of America, India)</li>
-                    <li>Taught at International banks including JP Morgan, Bank of America, Morgan Stanley, Nomura, etc.</li>
-                    <li>Consulted with Research Wing of Reserve Bank of India</li>
-                    <li>Research interests in Applied Probability, Financial Mathematics, Learning Theory, Weather and Climate Modelling</li>
+                    <li>Professor of Computer Science at Ashoka University. Director, Safexpress Centre for Data, Learning and Decision Sciences</li>
+                    <li>Former Professor at TIFR and IIT Delhi. Former Head of Quantitative Ops (Bank of America, India)</li>
+                    <li>Taught at JP Morgan, Bank of America, Morgan Stanley, Nomura. Consulted with Research Wing of Reserve Bank of India</li>
+                    <li>Research in Applied Probability, Financial Mathematics, Learning Theory</li>
                 </ul>
             </div>
-            <div class="schedule-card">
-                <p>📅 <strong>STARTS:</strong> AUGUST 26, 2025</p>
-                <p>🕙 <strong>WHEN:</strong> TUE & THU, 10:10 – 11:40 AM</p>
-                <p>📍 <strong>MODE:</strong> HYBRID (IN-PERSON + ONLINE)</p>
-            </div>
-            <a href="https://forms.gle/tWcRa5mRmFeim4eP8" class="register-button">REGISTER NOW!</a>
-        </aside>
-
+        </div>
     </div>
 
-<footer class="acknowledgement" role="contentinfo" aria-labelledby="ack-title">
-  <h3 id="ack-title" class="visually-hidden">Acknowledgements</h3>
-    <p>
-      This course is offered with the support of the 
-      <a href="https://www.ashoka.edu.in/page/centre-for-data-learning-and-decision-sciences-cdlds/" class="org">
-        Safexpress Centre for Data Learning and Decision Sciences
-      </a> 
-      and the 
-      <span class="org">Ashoka QuantFin Club</span>.
-    </p>
-  <p>
-    You can email the professor at 
-    <a href="mailto:sandeep.juneja@ashoka.edu.in">sandeep.juneja@ashoka.edu.in</a>. For suggestions, reporting bugs, issues, or logistical concerns, contact <a href="mailto:aman.foujdar_ug2023@ashoka.edu.in">aman.foujdar_ug2023@ashoka.edu.in</a>.
-  </p>
-</footer>
+    <!-- EXPLORE 26 PAGE -->
+    <div id="explore" class="page">
+        <div class="content-page">
+            <div class="page-header">
+                <h1>exSPLOre</h1>
+                <p>
+                Explorations in Statistics, Probability, Learning, and Optimization (exSPLOre) is our flagship event featuring lectures from leading experts in the area.
+                This page presents a curated selection of <b>exSPLOre guest lectures focused on quantitative finance and optimization.</b> 
+                Additional lectures are available on the our <a href="https://www.youtube.com/@scdlds_ashoka/" class="plain-link">YouTube</a>.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>🔬 Research Topics</h2>
+                <ul>
+                    <li><a href="#">Machine Learning in Quantitative Trading</a></li>
+                    <li><a href="#">Deep Learning for Derivatives Pricing</a></li>
+                    <li><a href="#">High-Frequency Trading Strategies</a></li>
+                    <li><a href="#">Climate Risk Modeling in Finance</a></li>
+                    <li><a href="#">Cryptocurrency Market Dynamics</a></li>
+                    <li><a href="#">Algorithmic Market Making</a></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📊 Student Projects</h2>
+                <ul>
+                    <li>Portfolio Optimization using Reinforcement Learning</li>
+                    <li>Volatility Surface Modeling with Neural Networks</li>
+                    <li>Credit Risk Assessment using Machine Learning</li>
+                    <li>Market Microstructure Analysis</li>
+                    <li>Options Pricing under Jump-Diffusion Models</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🎓 Advanced Seminars</h2>
+                <ul>
+                    <li><a href="#">Seminar 1: Rough Volatility Models</a></li>
+                    <li><a href="#">Seminar 2: Quantum Computing in Finance</a></li>
+                    <li><a href="#">Seminar 3: ESG Integration in Quant Strategies</a></li>
+                    <li><a href="#">Seminar 4: Decentralized Finance (DeFi) Mathematics</a></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>💡 Upcoming Events</h2>
+                <ul>
+                    <li>Workshop: Python for Financial Engineering (TBA)</li>
+                    <li>Guest Lecture: Industry Perspectives on Quant Finance (TBA)</li>
+                    <li>Hackathon: Algorithmic Trading Challenge (TBA)</li>
+                    <li>Panel Discussion: Career Paths in Quantitative Finance (TBA)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>This resource is offered with the support of the <a href="https://www.ashoka.edu.in/page/centre-for-data-learning-and-decision-sciences-cdlds/">Safexpress Centre for Data Learning and Decision Sciences</a> and the Ashoka QuantFin Club.</p>
+        <p> You can email the professor at <a href="mailto:sandeep.juneja@ashoka.edu.in">sandeep.juneja@ashoka.edu.in</a>. For suggestions, reporting bugs, issues, or logistical concerns, contact <a href="mailto:aman.foujdar_ug2023@ashoka.edu.in">aman.foujdar_ug2023@ashoka.edu.in</a>.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
