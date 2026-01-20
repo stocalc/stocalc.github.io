@@ -11,7 +11,7 @@
     --accent-hover: #2563eb;
     --text: #e2e8f0;
     --text-dim: #94a3b8;
-    --card-bg: #1e293b;
+    --card-bg: rgba(30, 41, 59, 0.6);
     --border: #334155;
 }
 
@@ -21,11 +21,45 @@ body {
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated Background */
+.particle-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.1;
+    animation: float 20s infinite;
+    color: var(--accent);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.05;
+    }
+    50% {
+        transform: translateY(-100px) rotate(180deg);
+        opacity: 0.15;
+    }
 }
 
 .page {
     display: none;
     animation: fadeIn 0.4s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .page.active {
@@ -43,17 +77,19 @@ body {
     }
 }
 
-/* Navigation */
+/* Navigation - Glassmorphism */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
     padding: 1rem 2rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .nav-content {
@@ -69,11 +105,28 @@ nav {
     font-weight: 700;
     color: var(--text);
     cursor: pointer;
-    transition: color 0.3s;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), #8b5cf6);
+    transition: width 0.3s;
+}
+
+.logo:hover::after {
+    width: 100%;
 }
 
 .logo:hover {
     color: var(--accent);
+    transform: translateY(-2px);
 }
 
 .nav-links {
@@ -86,8 +139,25 @@ nav {
     color: var(--text-dim);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: all 0.3s;
     cursor: pointer;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
@@ -112,9 +182,23 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.1), transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.1), transparent 50%);
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15), transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.1), transparent 50%);
+    animation: gradientShift 15s ease infinite;
     pointer-events: none;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
 }
 
 .hero-content {
@@ -128,10 +212,21 @@ nav {
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 800;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+    background: linear-gradient(135deg, #fff 0%, #3b82f6 50%, #8b5cf6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .hero p {
@@ -141,6 +236,18 @@ nav {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .card-grid {
@@ -152,15 +259,20 @@ nav {
     padding: 0 2rem;
 }
 
+/* 3D Tilt Effect Cards with Glassmorphism */
 .card {
-    background: var(--card-bg);
-    border-radius: 16px;
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 20px;
     padding: 2.5rem;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .card::before {
@@ -169,32 +281,73 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), #8b5cf6);
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), #8b5cf6, #ec4899);
     transform: scaleX(0);
-    transition: transform 0.3s;
+    transition: transform 0.4s;
+    background-size: 200% 100%;
+    animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 
+        0 20px 60px rgba(59, 130, 246, 0.2),
+        0 0 40px rgba(139, 92, 246, 0.1);
 }
 
 .card:hover::before {
     transform: scaleX(1);
 }
 
+.card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
 .card-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
     display: block;
+    transition: transform 0.4s;
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+}
+
+.card:hover .card-icon {
+    transform: scale(1.2) rotate(5deg);
 }
 
 .card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--text);
+    transition: color 0.3s;
+}
+
+.card:hover h3 {
+    color: var(--accent);
 }
 
 .card p {
@@ -212,15 +365,18 @@ nav {
 .page-header {
     margin-bottom: 4rem;
     text-align: center;
+    animation: fadeInUp 0.6s ease;
 }
 
 .page-header h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+    background: linear-gradient(135deg, #fff 0%, #3b82f6 50%, #8b5cf6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
 }
 
 .page-header p {
@@ -231,11 +387,20 @@ nav {
 }
 
 .section {
-    background: var(--card-bg);
-    border-radius: 16px;
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 20px;
     padding: 2.5rem;
     margin-bottom: 2rem;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+    animation: fadeInUp 0.6s ease;
+}
+
+.section:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .section h2 {
@@ -254,22 +419,41 @@ nav {
 }
 
 .section li {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     background: rgba(59, 130, 246, 0.05);
-    border-radius: 8px;
+    border-radius: 12px;
     border-left: 3px solid var(--accent);
     transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.section li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
+    transition: width 0.3s;
+}
+
+.section li:hover::before {
+    width: 100%;
 }
 
 .section li:hover {
     background: rgba(59, 130, 246, 0.1);
-    transform: translateX(4px);
+    transform: translateX(8px);
+    border-left-color: #8b5cf6;
 }
 
 .section a {
     color: var(--text);
     text-decoration: none;
     display: block;
+    transition: color 0.3s;
 }
 
 .section a:hover {
@@ -283,10 +467,19 @@ nav {
 }
 
 .instructor-card {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 20px;
     padding: 2.5rem;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+    animation: fadeInUp 0.8s ease;
+}
+
+.instructor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
 }
 
 .instructor-img {
@@ -297,6 +490,13 @@ nav {
     margin: 0 auto 1.5rem;
     display: block;
     border: 4px solid var(--accent);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s;
+}
+
+.instructor-card:hover .instructor-img {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
 }
 
 .instructor-card h3 {
@@ -311,8 +511,14 @@ nav {
 
 .instructor-card li {
     padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-dim);
+    transition: all 0.3s;
+}
+
+.instructor-card li:hover {
+    color: var(--text);
+    padding-left: 0.5rem;
 }
 
 .instructor-card li:last-child {
@@ -321,10 +527,13 @@ nav {
 
 .info-box {
     background: rgba(59, 130, 246, 0.1);
+    backdrop-filter: blur(20px);
     border-left: 4px solid var(--accent);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 12px;
     margin: 2rem 0;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    animation: fadeInUp 0.7s ease;
 }
 
 .info-box p {
@@ -338,30 +547,56 @@ nav {
 
 .cta-button {
     display: inline-block;
-    background: var(--accent);
+    background: linear-gradient(135deg, var(--accent), #8b5cf6);
     color: white;
     padding: 1rem 2.5rem;
-    border-radius: 8px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s;
     border: none;
     cursor: pointer;
     font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
 }
 
 .cta-button:hover {
-    background: var(--accent-hover);
+    background: linear-gradient(135deg, #8b5cf6, var(--accent));
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.5);
+}
+
+.plain-link {
+    color: inherit;          
+    text-decoration: underline;
 }
 
 footer {
-    background: var(--secondary);
-    border-top: 1px solid var(--border);
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 3rem 2rem;
     margin-top: 4rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 footer p {
@@ -372,9 +607,11 @@ footer p {
 footer a {
     color: var(--accent);
     text-decoration: none;
+    transition: all 0.3s;
 }
 
 footer a:hover {
+    color: #8b5cf6;
     text-decoration: underline;
 }
 
@@ -396,10 +633,4 @@ footer a:hover {
     .two-col {
         grid-template-columns: 1fr;
     }
-}
-
-
-.plain-link {
-color: inherit;          
-text-decoration: underline;
 }
