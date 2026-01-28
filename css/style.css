@@ -428,16 +428,23 @@ nav {
     overflow: hidden;
 }
 
-.section li::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
-    transition: width 0.3s;
-    pointer-events: none;
+
+
+.section li {
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 12px;
+    border-left: 3px solid var(--accent);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.section a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 1rem 1.5rem;
+    transition: color 0.3s;
 }
 
 .section li:hover::before {
@@ -635,4 +642,5 @@ footer a:hover {
         grid-template-columns: 1fr;
     }
 }
+
 
