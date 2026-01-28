@@ -437,6 +437,7 @@ nav {
     height: 100%;
     background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
     transition: width 0.3s;
+    pointer-events: none;
 }
 
 .section li:hover::before {
@@ -634,3 +635,4 @@ footer a:hover {
         grid-template-columns: 1fr;
     }
 }
+
