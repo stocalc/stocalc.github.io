@@ -386,6 +386,165 @@ nav {
     margin: 0 auto;
 }
 
+/* ============================================ */
+/* AQFC PAGE - Logo header                      */
+/* ============================================ */
+.aqfc-header {
+    margin-bottom: 3rem;
+}
+
+.aqfc-logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    display: block;
+    border-radius: 24px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 10px 40px rgba(59, 130, 246, 0.25),
+        0 0 60px rgba(139, 92, 246, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.6s ease;
+}
+
+.aqfc-logo:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow:
+        0 15px 50px rgba(59, 130, 246, 0.4),
+        0 0 80px rgba(139, 92, 246, 0.3);
+}
+
+/* ============================================ */
+/* SUB-NAVIGATION (for AQFC page tabs)          */
+/* ============================================ */
+.sub-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0 auto 3rem;
+    padding: 0.5rem;
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: 620px;
+    animation: fadeInUp 0.6s ease;
+}
+
+.sub-nav-btn {
+    flex: 1;
+    min-width: 140px;
+    background: transparent;
+    color: var(--text-dim);
+    border: none;
+    padding: 0.875rem 1.25rem;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.sub-nav-btn i {
+    font-size: 0.9rem;
+    transition: transform 0.3s;
+}
+
+.sub-nav-btn:hover {
+    color: var(--text);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.sub-nav-btn:hover i {
+    transform: scale(1.15);
+}
+
+.sub-nav-btn.active {
+    background: linear-gradient(135deg, var(--accent), #8b5cf6);
+    color: white;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.sub-nav-btn.active i {
+    color: white;
+}
+
+/* Sub-page display */
+.sub-page {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.sub-page.active {
+    display: block;
+}
+
+/* ============================================ */
+/* DEEP DIVES styling (blog + podcast section)  */
+/* ============================================ */
+.deepdives-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.6s ease;
+}
+
+.deepdives-title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+    letter-spacing: -0.02em;
+}
+
+.deepdives-subtitle {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Helper subtitle inside sections */
+.section-sub {
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+/* Meta text on blog/podcast entries */
+.entry-meta {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* Team tab centering for intro/outro sections */
+.team-intro,
+.team-outro {
+    text-align: center;
+}
+
+.team-intro h2,
+.team-outro h2 {
+    justify-content: center;
+}
+
 .section {
     background: rgba(30, 41, 59, 0.5);
     backdrop-filter: blur(20px) saturate(180%);
@@ -641,6 +800,18 @@ footer a:hover {
     .two-col {
         grid-template-columns: 1fr;
     }
+
+    .aqfc-logo {
+        width: 96px;
+        height: 96px;
+    }
+
+    .sub-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .sub-nav-btn {
+        width: 100%;
+    }
 }
-
-
