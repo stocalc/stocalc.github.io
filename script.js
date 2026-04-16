@@ -18,6 +18,37 @@ function showPage(pageId) {
     }, 100);
 }
 
+// Sub-page (tab) navigation for the AQFC page
+function showSubPage(subPageId, btnEl) {
+    // Scope the swap to the sub-page's own container so it doesn't affect other pages
+    const target = document.getElementById(subPageId);
+    if (!target) return;
+    const container = target.closest('.content-page');
+    if (!container) return;
+
+    // Hide all sub-pages inside this container
+    container.querySelectorAll('.sub-page').forEach(sp => {
+        sp.classList.remove('active');
+    });
+
+    // Show the target sub-page
+    target.classList.add('active');
+
+    // Update active state on sub-nav buttons
+    if (btnEl) {
+        const subNav = btnEl.closest('.sub-nav');
+        if (subNav) {
+            subNav.querySelectorAll('.sub-nav-btn').forEach(b => b.classList.remove('active'));
+            btnEl.classList.add('active');
+        }
+    }
+
+    // Re-run reveal animations on freshly shown content
+    setTimeout(() => {
+        initScrollReveal();
+    }, 50);
+}
+
 // Create animated particle background
 function createParticleBackground() {
     const container = document.createElement('div');
@@ -109,7 +140,7 @@ function initScrollReveal() {
 
 // Keyboard navigation
 document.addEventListener('keydown', function(e) {
-    const pages = ['home', 'intro', 'stochastic', 'explore'];
+    const pages = ['home', 'aqfc', 'stochastic', 'explore'];
     const currentPage = document.querySelector('.page.active')?.id;
     if (!currentPage) return;
     
