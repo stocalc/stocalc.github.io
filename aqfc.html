@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQFC – QuantFin Hub</title>
+    <link rel="icon" type="image/jpeg" href="images/scdlds_ashoka_logo.jpeg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a class="logo" href="index.html">QuantFin Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aqfc.html">AQFC</a></li>
+                <li><a href="stochastic.html">Stochastic Calculus</a></li>
+                <li><a href="explore.html">exSPLOre</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-page">
+
+        <!-- PAGE HEADER WITH LOGO -->
+        <div class="page-header aqfc-header">
+            <img src="images/aqfc_logo.png" alt="AQFC Logo" class="aqfc-logo">
+            <h1>Ashoka QuantFin Club</h1>
+            <p>
+                We explore quant trading and financial modelling using state-of-the-art ML techniques at
+                <b>SCDLDS, Ashoka University</b>. Our aim is to equip students with the skills and opportunities
+                needed to break into quantitative finance. We're focused on developing genuine expertise in quantitative
+                methods, algorithmic trading, and financial modeling among students.
+            </p>
+        </div>
+
+        <!-- SUB-NAVIGATION TABS -->
+        <div class="sub-nav">
+            <button class="sub-nav-btn" onclick="showSubPage('aqfc-about', this)">
+                <i class="fa-solid fa-circle-info"></i> About
+            </button>
+            <button class="sub-nav-btn active" onclick="showSubPage('aqfc-deepdives', this)">
+                <i class="fa-solid fa-water"></i> Deep Dives
+            </button>
+            <button class="sub-nav-btn" onclick="showSubPage('aqfc-team', this)">
+                <i class="fa-solid fa-users"></i> Team
+            </button>
+        </div>
+
+        <!-- SUB-PAGE: ABOUT -->
+        <div id="aqfc-about" class="sub-page">
+            <div class="two-col">
+                <div class="section">
+                    <h2><i class="fa-solid fa-bullseye" style="color:#ffffff;"></i>What We Do</h2>
+                    <ul>
+                        <li>Explore quant trading strategies, backtesting, and execution</li>
+                        <li>Reading groups on seminal papers in quant finance & ML</li>
+                        <li>Workshops on programming, statistics, and market microstructure</li>
+                        <li>Host practitioners from leading quant firms</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fa-solid fa-compass" style="color:#ffffff;"></i>Focus Areas</h2>
+                    <ul>
+                        <li>Statistical arbitrage, market-making, and execution algorithms</li>
+                        <li>Machine learning for financial time series and alpha research</li>
+                        <li>Portfolio optimization and risk management</li>
+                        <li>Reinforcement learning in trading and market dynamics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Home:</strong> Safexpress Centre for Data, Learning and Decision Sciences (SCDLDS), Ashoka University</p>
+                <p><strong>Open to:</strong> Ashoka students with strong quantitative backgrounds and genuine interest in the field</p>
+                <p><strong>Get involved:</strong> Reach out via <a href="https://www.linkedin.com/company/quantfin-ashoka/" target="_blank">LinkedIn</a> or contacts in the footer to learn about ongoing projects</p>
+            </div>
+        </div>
+
+        <!-- SUB-PAGE: DEEP DIVES -->
+        <div id="aqfc-deepdives" class="sub-page active">
+            <div class="deepdives-intro">
+                <h2 class="deepdives-title">Deep Dives</h2>
+                <p class="deepdives-subtitle">
+                    Explainers that make complex quant finance topics feel obvious and conversations with the people actually doing the work.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fa-solid fa-pen-nib" style="color:#ffffff;"></i>Blog</h2>
+                <ul>
+                    <li>
+                        <a>
+                            <strong>Coming Soon &mdash;</strong> What Even Is a Martingale? (And Why Gamblers Care)
+                            <br><span class="entry-meta">Launching our first piece shortly</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <strong>Coming Soon &mdash;</strong> Black-Scholes, Visually: The Single Equation That Broke Wall Street
+                            <br><span class="entry-meta">In the works</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fa-solid fa-microphone-lines" style="color:#ffffff;"></i>Conversations</h2>
+                <p class="section-sub">
+                    Short podcast episodes with quant finance industry folks &mdash;
+                    traders, researchers, engineers, and founders on what the work actually looks like.
+                </p>
+                <ul>
+                    <li>
+                        <a>
+                            <strong>Ep. 01 &mdash; Coming Soon:</strong> Life on a Systematic Trading Desk
+                            <br><span class="entry-meta">Recording in progress</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <strong>Ep. 02 &mdash; Coming Soon:</strong> ML Research at a Hedge Fund
+                            <br><span class="entry-meta">Scheduled</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <strong>Ep. 03 &mdash; Coming Soon:</strong> Breaking Into Quant &mdash; What Actually Matters
+                            <br><span class="entry-meta">Scheduled</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Want to write a piece or guest on the podcast?</strong></p>
+                <p>Reach out via the contact links in the footer. We welcome pitches from students and practitioners alike.</p>
+            </div>
+        </div>
+
+        <!-- SUB-PAGE: TEAM -->
+        <div id="aqfc-team" class="sub-page">
+
+            <div class="instructor-card">
+                <img src="images/sandeep_juneja.jpg" alt="Prof. Sandeep Juneja" class="instructor-img">
+                <h3>
+                    <a href="https://www.linkedin.com/in/sandeep-juneja-937b44b/" target="_blank" rel="noopener noreferrer" class="plain-link">
+                        Prof. Sandeep Juneja, Faculty Advisor
+                    </a>
+                </h3>
+                <ul>
+                    <li>Professor of Computer Science at Ashoka University. Director, Safexpress Centre for Data, Learning and Decision Sciences</li>
+                    <li>Former Professor at TIFR and IIT Delhi. Former Head of Quantitative Ops (Bank of America, India)</li>
+                    <li>Research in Applied Probability, Financial Mathematics, Learning Theory</li>
+                </ul>
+            </div>
+
+            <br>
+
+            <div class="instructor-card">
+                <img src="images/aman_foujdar.JPG" alt="Aman Foujdar" class="instructor-img">
+                <h3>
+                    <a href="https://www.linkedin.com/in/amanfoujdar/" target="_blank" rel="noopener noreferrer" class="plain-link">
+                        Aman Foujdar, President @ AQFC
+                    </a>
+                </h3>
+                <ul>
+                    <li>Research Assistant under Prof. Juneja at SCDLDS</li>
+                    <li>Interested in Machine Learning, Deep RL, GenAI, and Financial Markets</li>
+                    <li>Mathematics & Computer Science at Ashoka University</li>
+                </ul>
+            </div>
+
+            <br>
+
+            <div class="section team-outro">
+                <h2><i class="fa-solid fa-user-plus" style="color:#ffffff;"></i>More Members Coming Soon</h2>
+                <p class="section-sub" style="margin-bottom:0;">
+                    We're growing &mdash; the full roster of traders, researchers, and writers will be announced here soon.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>This resource is offered with the support of the <a href="https://www.ashoka.edu.in/page/centre-for-data-learning-and-decision-sciences-cdlds/">Safexpress Centre for Data Learning and Decision Sciences</a> and the <a href="aqfc.html">Ashoka QuantFin Club</a>.</p>
+        <p>You can email the professor at <a href="mailto:sandeep.juneja@ashoka.edu.in">sandeep.juneja@ashoka.edu.in</a>. For suggestions, reporting bugs, issues, or logistical concerns, contact <a href="mailto:aman.foujdar_ug2023@ashoka.edu.in">aman.foujdar_ug2023@ashoka.edu.in</a>.</p>
+    </footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/aqfc.js"></script>
+</body>
+</html>
