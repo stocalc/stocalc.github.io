@@ -676,6 +676,7 @@ nav {
 }
 
 .section li {
+    padding: 1rem 1.5rem;
     background: rgba(59, 130, 246, 0.05);
     border-radius: 12px;
     border-left: 3px solid var(--accent);
@@ -684,15 +685,21 @@ nav {
     overflow: hidden;
 }
 
+/* When an <a> is inside an <li>, let the anchor fill the padded area
+   instead of double-padding. */
+.section li > a {
+    display: block;
+    margin: -1rem -1.5rem;
+    padding: 1rem 1.5rem;
+}
+
 .section a {
     color: var(--text);
     text-decoration: none;
-    display: block;
-    padding: 1rem 1.5rem;
     transition: color 0.3s;
 }
 
-.section li:hover {
+.section li:has(> a):hover {
     background: rgba(59, 130, 246, 0.1);
     transform: translateX(8px);
     border-left-color: #8b5cf6;
