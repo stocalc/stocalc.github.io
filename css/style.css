@@ -56,13 +56,53 @@ body {
 }
 
 @keyframes fadeIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(10px); 
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
     }
 }
 
@@ -146,17 +186,15 @@ nav {
     transition: width 0.3s;
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
+.nav-links a:hover::after {
     width: 100%;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
     color: var(--accent);
 }
 
-/* Home Page */
+/* Home Page Hero */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -174,23 +212,12 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15), transparent 40%),
         radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15), transparent 40%),
         radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.1), transparent 50%);
     animation: gradientShift 15s ease infinite;
     pointer-events: none;
-}
-
-@keyframes gradientShift {
-    0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.8;
-        transform: scale(1.1);
-    }
 }
 
 .hero-content {
@@ -212,15 +239,6 @@ nav {
     background-size: 200% 200%;
 }
 
-@keyframes shimmer {
-    0%, 100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
 .hero p {
     font-size: 1.25rem;
     color: var(--text-dim);
@@ -231,17 +249,7 @@ nav {
     animation: fadeInUp 0.8s ease 0.2s both;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* Card Grid */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -251,7 +259,6 @@ nav {
     padding: 0 2rem;
 }
 
-/* 3D Tilt Effect Cards with Glassmorphism */
 .card {
     background: rgba(30, 41, 59, 0.5);
     backdrop-filter: blur(20px) saturate(180%);
@@ -266,8 +273,8 @@ nav {
     transform-style: preserve-3d;
     perspective: 1000px;
     text-decoration: none;
-    display: block;
     color: inherit;
+    display: block;
 }
 
 .card::before {
@@ -284,19 +291,10 @@ nav {
     animation: gradientMove 3s linear infinite;
 }
 
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 200% 0%;
-    }
-}
-
 .card:hover {
     transform: translateY(-8px) scale(1.02);
     border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 
+    box-shadow:
         0 20px 60px rgba(59, 130, 246, 0.2),
         0 0 40px rgba(139, 92, 246, 0.1);
 }
@@ -357,7 +355,6 @@ nav {
     padding: 6rem 2rem 4rem;
     position: relative;
     z-index: 1;
-    animation: fadeIn 0.4s ease;
 }
 
 .page-header {
@@ -477,7 +474,7 @@ nav {
     color: white;
 }
 
-/* Sub-page display */
+/* Sub-page display (driven by JS toggling .active) */
 .sub-page {
     display: none;
     animation: fadeIn 0.4s ease;
@@ -532,17 +529,120 @@ nav {
     font-style: italic;
 }
 
-/* Team tab centering for intro/outro sections */
-.team-intro,
+/* ============================================ */
+/* TEAM tab - minimal photo + name grid         */
+/* ============================================ */
+.team-section-heading {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 2.5rem 0 2rem;
+    letter-spacing: 0.02em;
+    position: relative;
+    animation: fadeInUp 0.6s ease;
+}
+
+.team-section-heading::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin: 0.75rem auto 0;
+    background: linear-gradient(90deg, var(--accent), #8b5cf6);
+    border-radius: 2px;
+}
+
+/* First heading on team tab has no top margin */
+.sub-page > .team-section-heading:first-child {
+    margin-top: 0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 720px;
+    margin: 0 auto 1rem;
+}
+
+.team-grid-single {
+    grid-template-columns: minmax(220px, 280px);
+    justify-content: center;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.6s ease;
+    cursor: pointer;
+}
+
+.team-member:hover {
+    transform: translateY(-6px);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
+}
+
+.team-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--accent);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+    transition: all 0.3s;
+}
+
+.team-member:hover .team-photo {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4);
+    border-color: #8b5cf6;
+}
+
+.team-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    transition: color 0.3s;
+}
+
+.team-member:hover .team-name {
+    color: var(--accent);
+}
+
+.team-role {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    line-height: 1.4;
+}
+
+/* Centered "More Members Coming Soon" section on team tab */
 .team-outro {
     text-align: center;
 }
 
-.team-intro h2,
 .team-outro h2 {
     justify-content: center;
 }
 
+/* ============================================ */
+/* SECTIONS                                     */
+/* ============================================ */
 .section {
     background: rgba(30, 41, 59, 0.5);
     backdrop-filter: blur(20px) saturate(180%);
@@ -576,7 +676,6 @@ nav {
 }
 
 .section li {
-    padding: 1rem 1.5rem;
     background: rgba(59, 130, 246, 0.05);
     border-radius: 12px;
     border-left: 3px solid var(--accent);
@@ -591,10 +690,6 @@ nav {
     display: block;
     padding: 1rem 1.5rem;
     transition: color 0.3s;
-}
-
-.section li:hover::before {
-    width: 100%;
 }
 
 .section li:hover {
@@ -613,6 +708,10 @@ nav {
     gap: 2rem;
 }
 
+/* ============================================ */
+/* INSTRUCTOR / PROFESSOR CARDS                 */
+/* (used on stochastic.html and similar pages)  */
+/* ============================================ */
 .instructor-card {
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
     backdrop-filter: blur(20px) saturate(180%);
@@ -672,6 +771,9 @@ nav {
     border-bottom: none;
 }
 
+/* ============================================ */
+/* INFO BOX + CTA                               */
+/* ============================================ */
 .info-box {
     background: rgba(59, 130, 246, 0.1);
     backdrop-filter: blur(20px);
@@ -690,6 +792,17 @@ nav {
 
 .info-box strong {
     color: var(--text);
+}
+
+.info-box a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.info-box a:hover {
+    color: #8b5cf6;
+    text-decoration: underline;
 }
 
 .cta-button {
@@ -731,10 +844,13 @@ nav {
 }
 
 .plain-link {
-    color: inherit;          
+    color: inherit;
     text-decoration: underline;
 }
 
+/* ============================================ */
+/* FOOTER                                       */
+/* ============================================ */
 footer {
     background: rgba(30, 41, 59, 0.5);
     backdrop-filter: blur(20px);
@@ -762,6 +878,9 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* ============================================ */
+/* RESPONSIVE                                   */
+/* ============================================ */
 @media (max-width: 768px) {
     nav {
         padding: 1rem;
@@ -793,5 +912,10 @@ footer a:hover {
 
     .sub-nav-btn {
         width: 100%;
+    }
+
+    .team-grid {
+        grid-template-columns: minmax(200px, 1fr);
+        max-width: 320px;
     }
 }
