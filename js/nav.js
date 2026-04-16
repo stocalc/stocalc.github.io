@@ -80,3 +80,60 @@ window.addEventListener('load', () => {
     highlightActiveNav();
     setTimeout(initScrollReveal, 100);
 });
+
+// Add this to js/nav.js (or paste into your existing nav.js)
+
+(function initMobileNav() {
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
+
+    const icon = toggle.querySelector('i');
+
+    function closeMenu() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        if (icon) {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    }
+
+    function openMenu() {
+        links.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        if (icon) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        }
+    }
+
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (links.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    // Close menu when a link is tapped
+    links.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', closeMenu);
+    });
+
+    // Close when clicking outside the nav
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav')) closeMenu();
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    });
+
+    // Close if the viewport grows past mobile breakpoint
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) closeMenu();
+    });
+})();
