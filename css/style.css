@@ -55,17 +55,6 @@ body {
     }
 }
 
-.page {
-    display: none;
-    animation: fadeIn 0.4s ease;
-    position: relative;
-    z-index: 1;
-}
-
-.page.active {
-    display: block;
-}
-
 @keyframes fadeIn {
     from { 
         opacity: 0; 
@@ -107,6 +96,7 @@ nav {
     cursor: pointer;
     transition: all 0.3s;
     position: relative;
+    text-decoration: none;
 }
 
 .logo::after {
@@ -156,11 +146,13 @@ nav {
     transition: width 0.3s;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
     width: 100%;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--accent);
 }
 
@@ -273,6 +265,9 @@ nav {
     overflow: hidden;
     transform-style: preserve-3d;
     perspective: 1000px;
+    text-decoration: none;
+    display: block;
+    color: inherit;
 }
 
 .card::before {
@@ -360,6 +355,9 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 6rem 2rem 4rem;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 0.4s ease;
 }
 
 .page-header {
@@ -587,17 +585,6 @@ nav {
     overflow: hidden;
 }
 
-
-
-.section li {
-    background: rgba(59, 130, 246, 0.05);
-    border-radius: 12px;
-    border-left: 3px solid var(--accent);
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
 .section a {
     color: var(--text);
     text-decoration: none;
@@ -614,13 +601,6 @@ nav {
     background: rgba(59, 130, 246, 0.1);
     transform: translateX(8px);
     border-left-color: #8b5cf6;
-}
-
-.section a {
-    color: var(--text);
-    text-decoration: none;
-    display: block;
-    transition: color 0.3s;
 }
 
 .section a:hover {
